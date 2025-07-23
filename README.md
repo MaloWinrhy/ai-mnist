@@ -39,5 +39,5 @@ cargo run --release
 * Rust stable
 * CSV file: `iris.csv` (included)
 
-## License
-# ai-mnist
+## Result
+<img width="600" height="500" alt="iris_confusion_matrix" src="https://github.com/user-attachments/assets/c082e59b-5fe0-46dd-8f8b-409aa487d130" />
