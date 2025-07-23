@@ -127,7 +127,7 @@ impl MLP {
             }
 
             if epoch % 100 == 0 || epoch == epochs - 1 {
-                println!("Epoch {} – Loss: {:.4}", epoch + 1, total_loss / data.len_of(ndarray::Axis(0)) as f32);
+                println!("[TRAIN] [Epoch {}][Loss={:.4}]", epoch + 1, total_loss / data.len_of(ndarray::Axis(0)) as f32);
             }
         }
     }

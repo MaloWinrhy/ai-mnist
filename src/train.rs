@@ -25,7 +25,7 @@ pub fn train(model: &mut Perceptron, data: &Array2<f32>, labels: &Array1<f32>, e
             model.bias -= lr * grad;
         }
 
-        println!("Epoch {} – Loss: {:.4}", epoch + 1, total_loss / data.shape()[0] as f32);
+        println!("[TRAIN] [Epoch {}][Loss={:.4}]", epoch + 1, total_loss / data.shape()[0] as f32);
     }
 }
 
