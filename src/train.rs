@@ -11,11 +11,9 @@ pub fn train(model: &mut Perceptron, data: &Array2<f32>, labels: &Array1<f32>, e
             let y_true = labels[i];
             let y_pred = model.forward(&x);
 
-            // ...existing code...
             let error = y_pred - y_true;
             total_loss += error.powi(2);
 
-            // ...existing code...
             let grad = error * sigmoid_derivative(y_pred);
 
             for j in 0..model.weights.len() {

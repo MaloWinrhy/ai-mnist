@@ -57,7 +57,6 @@ impl MLP {
                 let x = row.to_owned();
                 let y_true = labels.row(i).to_owned();
 
-                // ...existing code...
                 let z1 = self.w1.dot(&x) + &self.b1;
                 let a1 = z1.mapv(relu);
                 let z2 = self.w2.dot(&a1) + &self.b2;
@@ -65,14 +64,11 @@ impl MLP {
                 let z3 = self.w3.dot(&a2) + &self.b3;
                 let y_pred = softmax(&z3);
 
-                // ...existing code...
                 let loss = cross_entropy(&y_pred, &y_true);
                 total_loss += loss;
 
-                // ...existing code...
                 let d_output = &y_pred - &y_true;
 
-                // ...existing code...
                 let mut d_w3 = Array2::<f32>::zeros((self.output_size, self.hidden2_size));
                 for j in 0..self.output_size {
                     for k in 0..self.hidden2_size {
@@ -81,7 +77,6 @@ impl MLP {
                 }
                 let d_b3 = d_output.clone();
 
-                // ...existing code...
                 let mut d_hidden2 = Array1::<f32>::zeros(self.hidden2_size);
                 for j in 0..self.hidden2_size {
                     let mut sum = 0.0;
@@ -99,7 +94,6 @@ impl MLP {
                 }
                 let d_b2 = d_hidden2.clone();
 
-                // ...existing code...
                 let mut d_hidden1 = Array1::<f32>::zeros(self.hidden1_size);
                 for j in 0..self.hidden1_size {
                     let mut sum = 0.0;
@@ -117,7 +111,6 @@ impl MLP {
                 }
                 let d_b1 = d_hidden1.clone();
 
-                // ...existing code...
                 self.w3 = &self.w3 - &(d_w3.mapv(|v| v * lr));
                 self.b3 = &self.b3 - &(d_b3.mapv(|v| v * lr));
                 self.w2 = &self.w2 - &(d_w2.mapv(|v| v * lr));
