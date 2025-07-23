@@ -40,3 +40,4 @@ cargo run --release
 * CSV file: `iris.csv` (included)
 
 ## License
+# ai-mnist
