@@ -16,7 +16,6 @@ pub struct IrisRecord {
     pub variety: String,
 }
 
-// ...existing code...
 pub fn encode_class(class: &str) -> u8 {
     match class.to_lowercase().as_str() {
         "setosa" => 0,
@@ -26,7 +25,6 @@ pub fn encode_class(class: &str) -> u8 {
     }
 }
 
-// ...existing code...
 pub fn load_iris_csv(path: &str) -> (Array2<f32>, Array1<u8>) {
     let mut rdr = ReaderBuilder::new().has_headers(true).from_path(path).unwrap();
     let mut features = Vec::new();
@@ -40,7 +38,6 @@ pub fn load_iris_csv(path: &str) -> (Array2<f32>, Array1<u8>) {
     let m = features[0].len();
     let flat: Vec<f32> = features.into_iter().flatten().collect();
     let mut features_arr = Array2::from_shape_vec((n, m), flat).unwrap();
-    // ...existing code...
     for col in 0..m {
         let col_data = features_arr.column(col);
         let min = col_data.iter().cloned().fold(f32::INFINITY, f32::min);
