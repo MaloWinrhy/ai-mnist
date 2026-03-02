@@ -2,7 +2,6 @@ use ndarray::{Array1, Array2};
 use rand::seq::SliceRandom;
 use rand::thread_rng;
 
-// ...existing code...
 pub fn split_dataset(data: &Array2<f32>, labels: &Array1<f32>, ratio: f32) -> (Array2<f32>, Array1<f32>, Array2<f32>, Array1<f32>) {
     let n = data.shape()[0];
     let n_train = (n as f32 * ratio).round() as usize;
