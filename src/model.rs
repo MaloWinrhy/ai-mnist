@@ -21,7 +21,6 @@ impl Perceptron {
         sigmoid(sum)
     }
 
-    // ...existing code...
     pub fn predict(&self, inputs: &Array1<f32>) -> u8 {
         if self.forward(inputs) >= 0.5 {
             1
